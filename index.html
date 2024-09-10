@@ -599,31 +599,31 @@
         </div>
 
         <div class="row no-gutters block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
+  <div class="col-md-6 order-md-last d-flex">
+    <form id="contactForm" class="bg-light p-4 p-md-5 contact-form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Your Name" id="name">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Your Email" id="email">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Subject" id="subject">
+      </div>
+      <div class="form-group">
+        <textarea id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6 d-flex">
+    <div class="img" style="background-image: url(images/about.jpg);"></div>
+  </div>
+</div>
 
-          <div class="col-md-6 d-flex">
-          	<div class="img" style="background-image: url(images/about.jpg);"></div>
-          </div>
-        </div>
+
       </div>
     </section>
 		
@@ -732,6 +732,53 @@
   console.log("Firebase initialized:", app.name); // Should log your app name
 
 </script>
+
+<script>
+  // Function to handle form submission
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    // Get form data
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+
+    // Validate form data (optional but recommended)
+    if (name === "" || email === "" || subject === "" || message === "") {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Send form data to Firebase Realtime Database
+    firebase.database().ref('messages').push({
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    }).then(function() {
+      alert('Message sent successfully!');
+      
+      // Optional: Clear form after submission
+      document.getElementById('contactForm').reset();
+    }).catch(function(error) {
+      alert('Error sending message: ' + error.message);
+    });
+  });
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+  from_name: name,
+  from_email: email,
+  subject: subject,
+  message_html: message
+}).then(function(response) {
+  console.log('Email sent successfully:', response.status, response.text);
+}, function(error) {
+  console.error('Failed to send email:', error);
+});
+
+</script>
+
 
   <script src="js/main.js"></script>
     
