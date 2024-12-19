@@ -1,7 +1,7 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide'
- });
+AOS.init({
+    duration: 1200,  // Duration of animation
+    easing: 'ease-in-out', // Animation easing
+});
 
 (function($) {
 

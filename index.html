@@ -18,6 +18,60 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+
+    <style> .services-1 .icon img {
+    max-width: 80px; /* Adjust to your preference */
+    max-height: 80px; /* Adjust to your preference */
+    width: auto;
+    height: auto;
+    transition: filter 0.3s ease; /* Smooth transition */
+}
+
+.services-1:hover .icon img {
+    filter: grayscale(100%) brightness(100%) invert(100%);
+}
+</style>
+<style>
+
+        /* Set the background video */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send the video behind other content */
+        }
+         /* Set the background video */
+        .video-background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Send the video behind other content */
+        }
+
+        /* Video element */
+        .video-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay with reduced opacity */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1); /* Black overlay with 50% opacity */
+        }
+    </style>
 
     <!-- Bootstrap Icons CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
@@ -30,7 +84,8 @@
         emailjs.init("yO6B6frZA_iqrcQ_y"); // Replace with your EmailJS public key
       })();
     </script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
     <!-- Firebase SDK -->
 		<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
@@ -44,7 +99,10 @@
   </head>
   
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
+	   <!-- Background video -->
+    <video autoplay muted loop class="video-background">
+        <source src="videos/background3.mp4" type="video/mp4" alt="background vide">
+    </video>
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
@@ -66,11 +124,11 @@
 	    </div>
 	  </nav>
 	  
-	  <section id="home-section" class="hero">
+	  <section id="home-section" class="hero" >
 		  <div class="home-slider  owl-carousel">
-	      <div class="slider-item ">
-	      	<div class="overlay"></div>
-	        <div class="container">
+	      <div class="slider-item " >
+	      	<div class="overlay" ></div>
+	        <div class="container" >
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/mypicturenobg.png);">
 	          		<div class="overlay"></div>
@@ -117,7 +175,7 @@
 	    				</div>
     				</div>
     			</div>
-    			<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+    			<div class="col-md-6 col-lg-7 pl-lg-5 pb-5"  style="background-color: black; opacity: 90%;" data-aos="zoom-in" data-aos-duration="1200">
     				<div class="row justify-content-start pb-3">
 		          <div class="col-md-12 heading-section ftco-animate">
 		          	<h1 class="big">About</h1>
@@ -148,17 +206,23 @@
     </section>
 
     <section class="ftco-section ftco-no-pb" id="resume-section">
-    <div class="container">
-        <div class="row justify-content-center pb-5">
+    <div class="container" style="background-color: black; opacity: 90%;">
+        <div class="row justify-content-center pb-5" data-aos="zoom-in" data-aos-duration="1200">
             <div class="col-md-10 heading-section text-center ftco-animate">
                 <h1 class="big big-2">Resume</h1>
                 <h2 class="mb-4">Resume</h2>
-                <p>As an emerging Software Engineer, currently focused on pursuing a career in Data Analysis, I am actively engaged in acquiring skills in Power BI and data analysis. My background includes a strong foundation in automation and manual testing for web and mobile applications, as well as proficiency in web scraping and WordPress development. With a keen interest in the Data Analytics field, I recently completed a Power BI Developer certification from Crystal System EU to further enhance my skills in data analysis and visualization. My flexibility has allowed me to adopt these diverse skills, and I am looking to further expand my skill set by learning more in-demand skills in the market and choosing my domain wherever opportunities arise.</p>
+                <p>As an emerging Software Engineer and expert Power BI Developer, I bring a diverse and multifaceted skill set, excelling in data analytics, business intelligence, and data mining. My expertise lies in transforming complex datasets into actionable insights using advanced tools like Power BI. Currently, I am working at SICCOTEL Telecommunications Pakistan, where I analyze data from grocery stores, gas stations, and petroleum stations to deliver meaningful insights for US-based clients, including TC Fuels, Exxon, and Basalt.
+
+I am actively pursuing the Microsoft PL-300 certification to become a Microsoft Certified Power BI Data Analyst, further solidifying my proficiency in data visualization and reporting. My skill set also extends to machine learning and artificial intelligence, enabling me to work on predictive analytics and intelligent data solutions.
+
+In addition to my data expertise, I have hands-on experience in automation testing, web scraping, and UI/UX design with Figma, allowing me to tackle diverse technical challenges effectively. My background in WordPress development and graphic design has been showcased through my Fiverr freelancing journey, where I am a Level 1 Seller, delivering premium logo designs and branding services to clients worldwide.
+
+I am a confident and adaptable individual with strong leadership capabilities, having successfully managed teams and projects in various roles. My ability to innovate and solve complex problems has positioned me as a dynamic professional ready to take on associate-level roles in Data Analytics, Business Intelligence, Machine Learning, and AI Engineering. I am passionate about leveraging data-driven solutions to drive business success and am always eager to explore new domains to enhance my skill set further.</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row" data-aos="zoom-in" data-aos-duration="1200">
             <div class="col-md-6">
-                <div class="resume-wrap ftco-animate">
+                <div class="resume-wrap ftco-animate" data-aos="flip-left" data-aos-duration="1200">
                     <span class="date">2020-2024</span>
                     <h2>Bachelor's of Software Engineering</h2>
                     <span class="position">Bahria University</span>
@@ -194,11 +258,11 @@
                     <span class="date">2024-2024</span>
                     <h2>Trainee & Power BI Developer</h2>
                     <span class="position">Crystal System EU</span>
-                    <p class="mt-4">Recently completed a Power BI Developer certification with Crystal System, a European firm, to enhance skills in data analysis and visualization. Data cleaning, transformation, loading, modeling, and report creation were my roles during the training, and then I applied these skills to create impactful data-driven insights, including interactive dashboards.</p>
+                    <p class="mt-4">Completed a Power BI Developer certification more of a apprenticeship with Crystal System, an European firm, to enhance skills in data analysis and visualization. Data cleaning, transformation, loading, modeling, and report creation were my roles during the training, and then I applied these skills to create impactful data-driven insights, including interactive dashboards.</p>
                 </div>
                 <div class="resume-wrap ftco-animate">
                     <span class="date">2024-2024</span>
-                    <h2>WordPress Developer</h2>
+                    <h2>WordPress Developer (Remote)</h2>
                     <span class="position">Creative MediaLink</span>
                     <p class="mt-4">As the lead web developer and designer for Creative MediaLink, my responsibilities included creating a user-friendly WordPress website that effectively showcased the company's services and expertise. The primary objective of this project was to create a visually appealing and highly functional WordPress website that would serve as a hub for Creative MediaLink's digital marketing services. This website needed to reflect the company's commitment to innovation and excellence in the field.</p>
                 </div>
@@ -220,7 +284,7 @@
 
 
     <section class="ftco-section" id="services-section">
-    	<div class="container">
+    	<div class="container" style="background-color: black; opacity: 90%;" data-aos="zoom-in" data-aos-duration="1200">
     		<div class="row justify-content-center py-5 mt-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Services</h1>
@@ -229,74 +293,74 @@
           </div>
         </div>
     		<div class="row">
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Wordpress Design</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Data Analytics</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-ideas"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Software Testing</h3>
-							</div>
-						</a>
-					</div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/wordpress-logo.png" alt="WordPress Design" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">WordPress Design</h3>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/data-analysis.png" alt="Data Analytics" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">Data Analytics</h3>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/software-testing.png" alt="Software Testing" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">Software Testing</h3>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/mobile-development.png" alt="Mobile App Development" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">Mobile App Development</h3>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/graphic-design.png" alt="Graphic Designing" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">Graphic Designing</h3>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 text-center d-flex ftco-animate">
+        <a href="#" class="services-1">
+            <span class="icon">
+                <img src="fonts/flaticon/robotic.png" alt="Automation and Web Scraping" />
+            </span>
+            <div class="desc">
+                <h3 class="mb-5">Automation and Web Scraping</h3>
+            </div>
+        </a>
+    </div>
+</div>
 
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-analysis"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Mobile App Development</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-flasks"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Graphic Designing</h3>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-ideas"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Automation and Web Scrapping</h3>
-							</div>
-						</a>
-					</div>
-				</div>
     	</div>
     </section>
 
 		
 		<section class="ftco-section" id="skills-section">
-			<div class="container">
+			<div class="container" style="background-color: black; opacity: 90%;">
 				<div class="row justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Skills</h1>
@@ -305,7 +369,7 @@
           </div>
         </div>
 
-				<div class="row">
+				<div class="row" data-aos="zoom-in" data-aos-duration="1200">
 					<div class="col-md-6 animate-box">
 						<div class="progress-wrap ftco-animate">
 							<h3>Data Science/Data Mining</h3>
@@ -478,7 +542,7 @@
 		</section>
 
     <section class="ftco-section ftco-project" id="projects-section">
-    	<div class="container">
+    	<div class="container" style="background-color: black; opacity: 90%;" data-aos="zoom-in" data-aos-duration="1200">
     		<div class="row justify-content-center pb-5">
           <div class="col-md-12 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Projects</h1>
@@ -486,7 +550,7 @@
             <p>Projects will be uploaded soon ...</p>
           </div>
         </div>
-    		<div class="row">
+    		<div class="row" style="background-color: black; opacity: 90%;">
     			<div class="col-md-4">
     				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
     					<div class="overlay"></div>
@@ -550,7 +614,7 @@
     </section>
 
     <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-    	<div class="container">
+    	<div class="container" data-aos="zoom-in" data-aos-duration="1200">
 				<div class="row d-md-flex align-items-center">
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18">
@@ -588,20 +652,20 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
-			<div class="container">
+    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg); opacity: 95%;">
+			<div class="container" data-aos="zoom-in" data-aos-duration="1200">
 				<div class="row justify-content-center">
 					<div class="col-md-7 ftco-animate text-center">
 						<h2>I'm <span>Available</span> for freelancing</h2>
-						<p>I'm a professional freelancer too! I'm also open to project based Freelance work, feel free to reach out to me anywhere you find easy. I've mentioned my contact info below.</p>
-						<p class="mb-0"><a href="https://www.upwork.com/freelancers/~01ed7a2e19ef86085d?viewMode=1" class="btn btn-primary py-3 px-4" target="_blank">Hire me</a></p>
+						<p style="color:white;">I'm a professional freelancer too! I'm also open to project based Freelance work, feel free to reach out to me anywhere you find easy. I've mentioned my contact info below.</p>
+						<p class="mb-0"><a href="https://www.upwork.com/freelancers/~01ed7a2e19ef86085d?viewMode=1" class="btn btn-primary py-3 px-4"target="_blank">Hire me</a></p>
 					</div>
 				</div>
 			</div>
 		</section>
 
   <section class="ftco-section contact-section" id="contact-section">
-  <div class="container">
+  <div class="container" style="background-color: black; opacity: 90%;"data-aos="zoom-in" data-aos-duration="1200">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center ftco-animate">
         <h1 class="big big-2">Contact</h1>
@@ -678,7 +742,7 @@
 </section>
 
 
-    <footer class="ftco-footer ftco-section">
+    <footer class="ftco-footer ftco-section" style="opacity: 90%;">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
