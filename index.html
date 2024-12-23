@@ -103,7 +103,30 @@
     <video autoplay muted loop class="video-background">
         <source src="videos/background3.mp4" type="video/mp4" alt="background vide">
     </video>
-	  
+
+	   <!-- Background audio -->
+    <audio autoplay loop muted id="background-music">
+    <source src="audios/BackgroundMusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<script>
+    document.addEventListener('click', () => {
+        const music = document.getElementById('background-music');
+        music.muted = false; // Unmute audio
+        music.volume = 1.0; // Full volume
+        music.play().then(() => {
+            console.log('Audio is playing!');
+        }).catch(error => {
+            console.error('Playback failed:', error);
+        });
+    });
+
+    const music = document.getElementById('background-music');
+    music.onerror = () => console.error('Error loading or playing the audio file.');
+</script>
+
+
+
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
 	      <a class="navbar-brand" href="index.html">Engr. Usama   <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" An Expert Data Driven Software Engineeraria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

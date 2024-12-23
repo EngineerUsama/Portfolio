@@ -66,6 +66,9 @@ body {
     position: relative;
     z-index: 1; /* Keep the content above the background */
 }
+audio {
+    display: none;
+}
 
 .black-background {
     position: absolute;
