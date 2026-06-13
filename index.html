@@ -878,79 +878,27 @@ My edge isn't just technical breadth, it's the ability to connect data strategy 
 
 
 	 <!-- Include EmailJS SDK -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('form[action="https://formspree.io/f/mwvjwrjk"]').addEventListener('submit', function(event) {
+      
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
 
-  <!-- Include Firebase SDK -->
-  <script type="module">
-    // import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    // import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js';
-    // import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js';
+      // Validate form data
+      if (!name || !email || !subject || !message) {
+        event.preventDefault(); // Only block submission if validation fails
+        alert('Please fill out all fields.');
+        return;
+      }
 
-    // // Your web app's Firebase configuration
-    // const firebaseConfig = {
-    //   apiKey: "AIzaSyBPIC_gcy8jyxJqHOqYUeUaZ48tOPvPRQA",
-    //   authDomain: "portfoliousama-dc6b1.firebaseapp.com",
-    //   databaseURL: "https://portfoliousama-dc6b1-default-rtdb.firebaseio.com",
-    //   projectId: "portfoliousama-dc6b1",
-    //   storageBucket: "portfoliousama-dc6b1.appspot.com",
-    //   messagingSenderId: "54759009091",
-    //   appId: "1:54759009091:web:73fdae7aa841baef809df6",
-    //   measurementId: "G-J14MZ93L3E"
-    // };
-
-    // // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
-    // const database = getDatabase(app);
-    // const analytics = getAnalytics(app);
-
-    // // Initialize EmailJS
-    // emailjs.init("yO6B6frZA_iqrcQ_y"); // Replace with your EmailJS user ID
-
-    // // Handle contact form submission
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   document.getElementById('contactForm').addEventListener('submit', function(event) {
-    //     event.preventDefault(); // Prevent form from refreshing the page
-
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        // Validate form data
-        if (!name || !email || !subject || !message) {
-          alert('Please fill out all fields.');
-          return;
-        }
-
-        // Send form data to Firebase Realtime Database
-        const messagesRef = ref(database, 'messages');
-        push(messagesRef, {
-          name: name,
-          email: email,
-          subject: subject,
-          message: message
-        }).then(function() {
-          alert('Message sent successfully!');
-          document.getElementById('contactForm').reset();
-        }).catch(function(error) {
-          alert('Error sending message: ' + error.message);
-        });
-
-        // Send email using EmailJS
-        emailjs.send("service_f8s9cpp", "template_03i146k", {
-          from_name: name,
-          from_email: email,
-          subject: subject,
-          message_html: message
-        }).then(function(response) {
-          console.log('Email sent successfully:', response.status, response.text);
-        }).catch(function(error) {
-          console.error('Failed to send email:', error);
-        });
-      });
+      // If validation passes, form submits normally to Formspree
     });
-  </script>
+  });
+</script>
 
   <script src="js/main.js"></script>
     
