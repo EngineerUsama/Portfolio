@@ -87,11 +87,11 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <!-- Firebase SDK -->
-		<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+		<!-- <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
-	
+	 -->
 		
 		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7715182808919365"
      crossorigin="anonymous"></script>
@@ -311,7 +311,9 @@ My edge isn't just technical breadth, it's the ability to connect data strategy 
         </div>
         <div class="row justify-content-center mt-5">
             <div class="col-md-6 text-center ftco-animate">
-                <p><a href="https://firebasestorage.googleapis.com/v0/b/portfoliousama-dc6b1.appspot.com/o/Usama's Resume.pdf?alt=media" class="btn btn-primary py-4 px-5" target="_blank" download>Download CV</a></p>
+                <p><a href="https://drive.google.com/uc?export=download&id=1egEEDOQHKULTfvQHvXb2_fiGNp4JFRLa" 
+   target="_blank">
+   Download CV</a></p>
             </div>
         </div>
     </div>
@@ -884,34 +886,34 @@ My edge isn't just technical breadth, it's the ability to connect data strategy 
 
   <!-- Include Firebase SDK -->
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js';
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js';
+    // import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+    // import { getDatabase, ref, set, push } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js';
+    // import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js';
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyBPIC_gcy8jyxJqHOqYUeUaZ48tOPvPRQA",
-      authDomain: "portfoliousama-dc6b1.firebaseapp.com",
-      databaseURL: "https://portfoliousama-dc6b1-default-rtdb.firebaseio.com",
-      projectId: "portfoliousama-dc6b1",
-      storageBucket: "portfoliousama-dc6b1.appspot.com",
-      messagingSenderId: "54759009091",
-      appId: "1:54759009091:web:73fdae7aa841baef809df6",
-      measurementId: "G-J14MZ93L3E"
-    };
+    // // Your web app's Firebase configuration
+    // const firebaseConfig = {
+    //   apiKey: "AIzaSyBPIC_gcy8jyxJqHOqYUeUaZ48tOPvPRQA",
+    //   authDomain: "portfoliousama-dc6b1.firebaseapp.com",
+    //   databaseURL: "https://portfoliousama-dc6b1-default-rtdb.firebaseio.com",
+    //   projectId: "portfoliousama-dc6b1",
+    //   storageBucket: "portfoliousama-dc6b1.appspot.com",
+    //   messagingSenderId: "54759009091",
+    //   appId: "1:54759009091:web:73fdae7aa841baef809df6",
+    //   measurementId: "G-J14MZ93L3E"
+    // };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
-    const analytics = getAnalytics(app);
+    // // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    // const database = getDatabase(app);
+    // const analytics = getAnalytics(app);
 
-    // Initialize EmailJS
-    emailjs.init("yO6B6frZA_iqrcQ_y"); // Replace with your EmailJS user ID
+    // // Initialize EmailJS
+    // emailjs.init("yO6B6frZA_iqrcQ_y"); // Replace with your EmailJS user ID
 
-    // Handle contact form submission
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from refreshing the page
+    // // Handle contact form submission
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   document.getElementById('contactForm').addEventListener('submit', function(event) {
+    //     event.preventDefault(); // Prevent form from refreshing the page
 
         // Get form data
         const name = document.getElementById('name').value;
@@ -925,33 +927,33 @@ My edge isn't just technical breadth, it's the ability to connect data strategy 
           return;
         }
 
-        // Send form data to Firebase Realtime Database
-        const messagesRef = ref(database, 'messages');
-        push(messagesRef, {
-          name: name,
-          email: email,
-          subject: subject,
-          message: message
-        }).then(function() {
-          alert('Message sent successfully!');
-          document.getElementById('contactForm').reset();
-        }).catch(function(error) {
-          alert('Error sending message: ' + error.message);
-        });
+        // // Send form data to Firebase Realtime Database
+        // const messagesRef = ref(database, 'messages');
+        // push(messagesRef, {
+        //   name: name,
+        //   email: email,
+        //   subject: subject,
+        //   message: message
+        // }).then(function() {
+        //   alert('Message sent successfully!');
+        //   document.getElementById('contactForm').reset();
+        // }).catch(function(error) {
+        //   alert('Error sending message: ' + error.message);
+        // });
 
-        // Send email using EmailJS
-        emailjs.send("service_f8s9cpp", "template_03i146k", {
-          from_name: name,
-          from_email: email,
-          subject: subject,
-          message_html: message
-        }).then(function(response) {
-          console.log('Email sent successfully:', response.status, response.text);
-        }).catch(function(error) {
-          console.error('Failed to send email:', error);
-        });
-      });
-    });
+        // // Send email using EmailJS
+        // emailjs.send("service_f8s9cpp", "template_03i146k", {
+        //   from_name: name,
+        //   from_email: email,
+        //   subject: subject,
+        //   message_html: message
+        // }).then(function(response) {
+        //   console.log('Email sent successfully:', response.status, response.text);
+        // }).catch(function(error) {
+        //   console.error('Failed to send email:', error);
+        // });
+    //   });
+    // });
   </script>
 
   <script src="js/main.js"></script>
